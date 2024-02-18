@@ -276,7 +276,6 @@ const NAV_ITEMS: Array<NavItem> = [
   { label: "About", href: "/about" },
   {
     label: "Team",
-    href: "/team",
     children: [
       { label: "Luke Oborn", href: "#" },
       { label: "Sam Legg", href: "#" },
@@ -287,7 +286,6 @@ const NAV_ITEMS: Array<NavItem> = [
   { label: "Blog", href: "/blog" },
   {
     label: "Events",
-    href: "/events",
     children: [
       {
         label: "VEX NZ Nationals Championship 2023/2024",
