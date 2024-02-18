@@ -11,7 +11,6 @@ import {
   Popover,
   PopoverTrigger,
   PopoverContent,
-  useColorModeValue,
   useDisclosure,
   HStack,
 } from "@chakra-ui/react";
@@ -28,14 +27,14 @@ export default function WithSubnavigation() {
   return (
     <Box>
       <Flex
-        bg={useColorModeValue("white", "gray.800")}
-        color={useColorModeValue("gray.600", "white")}
+        bg={"gray.900"}
+        color={"white"}
         minH={"60px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
         borderBottom={1}
         borderStyle={"solid"}
-        borderColor={useColorModeValue("gray.200", "gray.900")}
+        borderColor={"blue.200"}
         align={"center"}
       >
         <Flex
@@ -54,9 +53,12 @@ export default function WithSubnavigation() {
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
           <Text
+            as="a"
             textAlign={"center"}
             fontFamily={"heading"}
-            color={useColorModeValue("gray.800", "white")}
+            color={"blue.200"}
+            fontWeight={900}
+            href={"/"}
           >
             GCEC
           </Text>
@@ -71,31 +73,7 @@ export default function WithSubnavigation() {
           justify={"flex-end"}
           direction={"row"}
           spacing={6}
-        >
-          {/* <Button
-            as={"a"}
-            fontSize={"sm"}
-            fontWeight={400}
-            variant={"link"}
-            href={"#"}
-          >
-            Sign In
-          </Button>
-          <Button
-            as={"a"}
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"sm"}
-            fontWeight={600}
-            color={"white"}
-            bg={"pink.400"}
-            href={"#"}
-            _hover={{
-              bg: "pink.300",
-            }}
-          >
-            Sign Up
-          </Button> */}
-        </Stack>
+        ></Stack>
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>
@@ -106,9 +84,9 @@ export default function WithSubnavigation() {
 }
 
 const DesktopNav = () => {
-  const linkColor = useColorModeValue("gray.600", "gray.200");
-  const linkHoverColor = useColorModeValue("gray.800", "white");
-  const popoverContentBgColor = useColorModeValue("white", "gray.800");
+  const linkColor = "white";
+  const linkHoverColor = "blue.500";
+  const popoverContentBgColor = "gray.800";
 
   console.log({ linkColor, linkHoverColor, popoverContentBgColor });
 
@@ -125,6 +103,7 @@ const DesktopNav = () => {
                 fontSize={"sm"}
                 fontWeight={500}
                 color={linkColor}
+                textTransform={"uppercase"}
                 _hover={{
                   textDecoration: "none",
                   color: linkHoverColor,
@@ -166,13 +145,13 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
       display={"block"}
       p={2}
       rounded={"md"}
-      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
     >
       <Stack direction={"row"} align={"center"}>
         <Box>
           <Text
             transition={"all .3s ease"}
-            _groupHover={{ color: "pink.400" }}
+            textTransform={"uppercase"}
+            _groupHover={{ color: "blue.500" }}
             fontWeight={500}
           >
             {label}
@@ -188,7 +167,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
           align={"center"}
           flex={1}
         >
-          <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
+          <Icon color={"blue.500"} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
     </Box>
@@ -197,11 +176,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
 
 const MobileNav = () => {
   return (
-    <Stack
-      bg={useColorModeValue("white", "gray.800")}
-      p={4}
-      display={{ md: "none" }}
-    >
+    <Stack bg={"gray.800"} p={4} display={{ md: "none" }}>
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
@@ -225,10 +200,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         }}
       >
         <HStack>
-          <Text
-            fontWeight={600}
-            color={useColorModeValue("gray.600", "gray.200")}
-          >
+          <Text fontWeight={600} textTransform={"uppercase"} color={"white"}>
             {label}
           </Text>
           {children && (
@@ -249,12 +221,18 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           pl={4}
           borderLeft={1}
           borderStyle={"solid"}
-          borderColor={useColorModeValue("gray.200", "gray.700")}
+          borderColor={"blue.200"}
           align={"start"}
         >
           {children &&
             children.map((child) => (
-              <Box as="a" key={child.label} py={2} href={child.href}>
+              <Box
+                as="a"
+                textTransform={"uppercase"}
+                key={child.label}
+                py={2}
+                href={child.href}
+              >
                 {child.label}
               </Box>
             ))}
@@ -277,10 +255,10 @@ const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Team",
     children: [
-      { label: "Luke Oborn", href: "#" },
-      { label: "Sam Legg", href: "#" },
-      { label: "Serena Gazzard", href: "#" },
-      { label: "David Aston", href: "#" },
+      { label: "Luke Oborn", href: "/team#luke-oborn" },
+      { label: "Sam Legg", href: "/team#sam-legg" },
+      { label: "Serena Gazzard", href: "/team#serena-gazzard" },
+      { label: "David Aston (Coach)", href: "/team#david-aston" },
     ],
   },
   { label: "Blog", href: "/blog" },
