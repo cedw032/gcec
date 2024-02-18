@@ -5,7 +5,6 @@ import {
   Flex,
   Text,
   IconButton,
-  Button,
   Stack,
   Collapse,
   Icon,
@@ -13,7 +12,6 @@ import {
   PopoverTrigger,
   PopoverContent,
   useColorModeValue,
-  useBreakpointValue,
   useDisclosure,
   HStack,
 } from "@chakra-ui/react";
@@ -275,10 +273,10 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   { label: "Home", href: "/" },
-  { label: "About", href: "about" },
+  { label: "About", href: "/about" },
   {
     label: "Team",
-    href: "team",
+    href: "/team",
     children: [
       { label: "Luke Oborn", href: "#" },
       { label: "Sam Legg", href: "#" },
@@ -286,19 +284,25 @@ const NAV_ITEMS: Array<NavItem> = [
       { label: "David Aston", href: "#" },
     ],
   },
-  { label: "Blog", href: "blog" },
+  { label: "Blog", href: "/blog" },
   {
     label: "Events",
-    href: "events",
+    href: "/events",
     children: [
-      { label: "VEX NZ Nationals Championship 2024", href: "#" },
-      { label: "VEX US Create Foundation 2024", href: "#" },
-      { label: "VEX World Championship 2024", href: "#" },
+      {
+        label: "VEX NZ Nationals Championship 2023/2024",
+        href: "/events/nationals",
+      },
+      {
+        label: "VEX US Create Foundation Open 2023/2024",
+        href: "/events/create-open",
+      },
+      { label: "VEX World Championship 2023/2024", href: "/events/worlds" },
     ],
   },
-  { label: "Robots", href: "robots" },
-  { label: "Sponsor", href: "sponsor" },
-  { label: "Shop", href: "shop" },
-  { label: "FAQ", href: "faq" },
-  { label: "Contact", href: "contact" },
+  { label: "Robots", href: "/robots" },
+  { label: "Sponsor", href: "/sponsor" },
+  { label: "Shop", href: "/shop" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contact", href: "/contact" },
 ];
