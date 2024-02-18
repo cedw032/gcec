@@ -60,7 +60,7 @@ export default function WithSubnavigation() {
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
           >
-            Logo
+            GCEC
           </Text>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
@@ -74,7 +74,7 @@ export default function WithSubnavigation() {
           direction={"row"}
           spacing={6}
         >
-          <Button
+          {/* <Button
             as={"a"}
             fontSize={"sm"}
             fontWeight={400}
@@ -96,7 +96,7 @@ export default function WithSubnavigation() {
             }}
           >
             Sign Up
-          </Button>
+          </Button> */}
         </Stack>
       </Flex>
 
@@ -274,42 +274,31 @@ interface NavItem {
 }
 
 const NAV_ITEMS: Array<NavItem> = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "about" },
   {
-    label: "Inspiration",
+    label: "Team",
+    href: "team",
     children: [
-      {
-        label: "Explore Design Work",
-        subLabel: "Trending Design to inspire you",
-        href: "#",
-      },
-      {
-        label: "New & Noteworthy",
-        subLabel: "Up-and-coming Designers",
-        href: "#",
-      },
+      { label: "Luke Oborn", href: "#" },
+      { label: "Sam Legg", href: "#" },
+      { label: "Serena Gazzard", href: "#" },
+      { label: "David Aston", href: "#" },
     ],
   },
+  { label: "Blog", href: "blog" },
   {
-    label: "Find Work",
+    label: "Events",
+    href: "events",
     children: [
-      {
-        label: "Job Board",
-        subLabel: "Find your dream design job",
-        href: "#",
-      },
-      {
-        label: "Freelance Projects",
-        subLabel: "An exclusive list for contract work",
-        href: "#",
-      },
+      { label: "VEX NZ Nationals Championship 2024", href: "#" },
+      { label: "VEX US Create Foundation 2024", href: "#" },
+      { label: "VEX World Championship 2024", href: "#" },
     ],
   },
-  {
-    label: "Learn Design",
-    href: "#",
-  },
-  {
-    label: "Hire Designers",
-    href: "#",
-  },
+  { label: "Robots", href: "robots" },
+  { label: "Sponsor", href: "sponsor" },
+  { label: "Shop", href: "shop" },
+  { label: "FAQ", href: "faq" },
+  { label: "Contact", href: "contact" },
 ];
